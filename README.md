@@ -14,13 +14,13 @@
    git clone https://github.com/qwix7/calc-service.git
 
 2. Перейдите в директорию проекта:
-
-cd calc-service
+   ```bash
+   cd calc-service
 
 
 3. Убедитесь, что проект собран корректно:
-
-go mod tidy
+   ```bash
+   go mod tidy
 
 
 
@@ -30,9 +30,9 @@ go mod tidy
 
 Для упрощённого запуска с помощью Docker Compose:
 
-1. Запустите проект:
-
-docker-compose up --build
+1. Запустите проект
+   ```bash
+   docker-compose up --build
 
 
 2. После этого:
@@ -49,18 +49,18 @@ docker-compose up --build
 Если у вас установлен Go, можно запустить сервер вручную:
 
 1. Запустите оркестратор:
-
-go run orchestrator/main.go &
+   ```bash
+   go run orchestrator/main.go &
 
 
 2. Запустите агента:
-
-go run agent/main.go &
+   ```bash
+   go run agent/main.go &
 
 
 3. Запустите веб-интерфейс:
-
-go run web/main.go &
+   ```bash
+   go run web/main.go &
 
 
 
