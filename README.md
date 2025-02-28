@@ -123,3 +123,39 @@ curl --location 'http://localhost:8080/api/v1/calculate' \
 Схема работы
 
 [Web] → [Orchestrator] → [Agents] → [Orchestrator] → [Web]
+
+---
+
+### 2. **`docker-compose.yml`**
+
+```yaml
+version: '3.8'
+
+services:
+  orchestrator:
+    build:
+      context: ./orchestrator
+    ports:
+      - "8080:8080"
+    networks:
+      - calc-network
+    depends_on:
+      - agent
+
+  agent:
+    build:
+      context: ./agent
+    networks:
+      - calc-network
+
+  web:
+    build:
+      context: ./web
+    ports:
+      - "8081:8081"
+    networks:
+      - calc-network
+
+networks:
+  calc-network:
+    driver: bridge
